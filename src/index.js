@@ -1,18 +1,21 @@
 // All imports are defined here
 import express from "express";
+
 import authRoutes from "./routes/auth-route.js";
+import connectDB from "./config/db-connection-config.js";
+import envConfig from "./config/config-env.js";
 
 // All the routes are defined here
 const app = express();
-const PORT = 3000;
 
 app.get("/", (req, res) => {
   res.send("Note Man running YOYO !!!");
 });
-
+connectDB();
+app.use(express.json());
 app.use("/api/auth", authRoutes);
 
 // listen to the port 3000
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(envConfig.PORT, () => {
+  console.log(`Server is running on port ${envConfig.PORT}`);
 });
