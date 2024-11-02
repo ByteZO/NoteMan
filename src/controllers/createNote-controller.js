@@ -23,7 +23,7 @@ const createNote = async (req, res) => {
       status: 201,
       message: "Note is Successfully created NoteMan",
       data: {
-        Note,
+        noteDoc,
       },
     });
   } catch (error) {
