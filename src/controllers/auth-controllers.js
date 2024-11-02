@@ -7,7 +7,6 @@ const register = async (req, res) => {
   try {
     const { userName, fullName, email, phoneNumber, password } = req.body;
 
-    // Check if the user already exists
     const user = await User.findOne({ email });
     if (user) {
       return res.status(409).json({
@@ -16,10 +15,8 @@ const register = async (req, res) => {
       });
     }
 
-    // Hash the password
     const hashedPassword = await passwordHash(password);
 
-    // Create a new user
     const newUser = await User.create({
       userName,
       name: fullName,
@@ -28,7 +25,6 @@ const register = async (req, res) => {
       phone: phoneNumber,
     });
 
-    // Exclude the password from the response
     const { password: _, ...userData } = newUser.toObject();
 
     console.log(userData);
