@@ -22,7 +22,7 @@ const noteSchema = mongoose.Schema(
       type: String,
       required: true,
       minlength: 10,
-      maxlength: 500, // corrected typo here from maxlenght to maxlength
+      maxlength: 500,
     },
     coverImageUrl: {
       type: String,
@@ -37,7 +37,7 @@ const noteSchema = mongoose.Schema(
       type: String,
       required: true,
       minlength: 10,
-      maxlength: 100, // corrected typo here from maxlenght to maxlength
+      maxlength: 100,
     },
     userWhoBoughtIt: [
       {

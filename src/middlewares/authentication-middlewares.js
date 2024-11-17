@@ -4,7 +4,6 @@ import verifyJwt from "../utils/jwtVerify-util.js";
 
 const authMiddleware = async (req, res, next) => {
   const token = req.headers.authorization.split(" ")[1] || req.cookies.token;
- 
 
   try {
     if (!token) {
