@@ -11,12 +11,12 @@ const createNote = async (req, res) => {
       description,
       coverImageUrl: coverImage,
       title,
-    }); 
+    });
 
     if (!noteDoc)
       return res.status(501).json({
         status: 501,
-        message: "Internal Sever Error",
+        message: "Somthing went wrong",
       });
 
     return res.status(201).json({
@@ -27,7 +27,7 @@ const createNote = async (req, res) => {
       },
     });
   } catch (error) {
-    throw console.error("error while creating the note ", error);
+    throw console.error("error while c reating the note ", error);
   }
 };
 
